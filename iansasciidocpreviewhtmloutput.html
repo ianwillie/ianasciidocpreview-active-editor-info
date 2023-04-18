@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>AsciiDoc Syntax</title>
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>AsciiDoc Syntax</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_asciidoc_syntax_999999999999999977">AsciiDoc Syntax 999999999999999977</a></li>
+<li><a href="#_paragraphs">Paragraphs</a></li>
+<li><a href="#_text_formatting">Text Formatting</a></li>
+<li><a href="#_attributes">Attributes</a></li>
+<li><a href="#_links">Links</a></li>
+<li><a href="#_anchors">Anchors</a></li>
+<li><a href="#_lists">Lists</a>
+<ul class="sectlevel2">
+<li><a href="#_unordered">Unordered</a></li>
+<li><a href="#_ordered">Ordered</a></li>
+<li><a href="#_checklist">Checklist</a></li>
+<li><a href="#_callout">Callout</a></li>
+<li><a href="#_description">Description</a></li>
+</ul>
+</li>
+<li><a href="#_document_structure">Document Structure</a>
+<ul class="sectlevel2">
+<li><a href="#_header">Header</a></li>
+<li><a href="#_sections">Sections</a></li>
+<li><a href="#_includes">Includes</a></li>
+</ul>
+</li>
+<li><a href="#_blocks">Blocks</a></li>
+<li><a href="#_tables">Tables</a></li>
+<li><a href="#_multimedia">Multimedia</a></li>
+<li><a href="#_breaks">Breaks</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_asciidoc_syntax_999999999999999977">AsciiDoc Syntax 999999999999999977</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These letters and symbols following are to see if an error in rendering ever occurs.
+It was noted that the digit 9 was being rendered by pulsar html-preview as
+a single "long dash" character. Probaby this character —
+Hold down together Ctrl-Shift-U followed by 2014 followed by space or entry
+which generates —
+No one other than ianwillie could find this.
+It occured for weeks and after Atom-Dark theme was present but vanished after installing
+Atom-Light and immediately reinstalling Atom-Dark.
+See <a href="https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206" class="bare">https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206</a></p>
+</div>
+<div class="paragraph">
+<p>1234567890 abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+¬!"£$%^&amp;*()_+-= {}[]:;@'~#&lt;,&gt;.?/|\</p>
+</div>
+<div class="paragraph">
+<p>This is a more or less complete copy of an early asciidoctor syntax guide asciidoc_syntax.adoc which is handy for checking how it is rendered.
+At the end it includes some multimedia which should work OK but most of the urls are likely not to work unless the base URL is attended to.
+Current documentation can be found at <a href="https://asciidoctor.org/docs/" class="bare">https://asciidoctor.org/docs/</a></p>
+</div>
+<div class="paragraph">
+<p>A brief reference of the most commonly used AsciiDoc syntax.
+Test the datess 1975.
+You can find the full documentation for the AsciiDoc syntax at <a href="https://asciidoctor.org/docs" class="bare">https://asciidoctor.org/docs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paragraphs">Paragraphs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A normal paragraph.
+Line breaks are not preserved.</p>
+</div>
+<div class="paragraph">
+<p>A blank line separates paragraphs.</p>
+</div>
+<div class="paragraph">
+<p>This paragraph is marked with the <code>hardbreaks</code> option.<br>
+Notice how line breaks are now preserved.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>An indented (literal) paragraph disables text formatting,
+preserves spaces and line breaks, and is displayed in a
+monospaced font.</pre>
+</div>
+</div>
+<div id="id" class="sidebarblock role">
+<div class="content">
+Adding a style, ID, and/or role gives a paragraph (or block) special meaning, like this sidebar.
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+An admonition paragraph, like this note, grabs the reader&#8217;s attention.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+Convert this document using the <code>asciidoctor</code> command to see the output produced from it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_text_formatting">Text Formatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Constrained (applied at word boundaries)</div>
+<p><strong>strong importance</strong> (aka bold)<br>
+<em>stress emphasis</em> (aka italic)<br>
+<code>monospaced</code> (aka typewriter text)<br>
+&#8220;double&#8221; and &#8216;single&#8217; typographic quotes<br>
+passthrough text (substitutions disabled)<br>
+<code>literal text</code> (monospaced with substitutions disabled)<br>
+a <mark>mark</mark> to remember (highlighted for notation)</p>
+</div>
+<div class="paragraph">
+<div class="title">Unconstrained (applied anywhere)</div>
+<p><strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, and <strong>D</strong>elete (CRUD)<br>
+fan<em>freakin</em>tastic<br>
+<code>mono</code>culture<br>
+<mark>mark</mark>up your text</p>
+</div>
+<div class="paragraph">
+<div class="title">Replacements</div>
+<p>A long time ago in a galaxy far, far away&#8230;&#8203;<br>
+&#169; 1976 Arty Artisan<br>
+I believe I shall&#8212;&#8203;no, actually I won&#8217;t.</p>
+</div>
+<div class="paragraph">
+<div class="title">ID and roles for phrases</div>
+<p><span class="line-through">delete me</span><br>
+the <em class="path">images</em> directory<br>
+a <strong id="wibble" class="term">wibble</strong> does wobble</p>
+</div>
+<div class="paragraph">
+<div class="title">Macros</div>
+<p>The European <span class="icon blue">[flag&#93;</span> is blue &amp; contains ************ arranged in a <span class="icon yellow">[circle o&#93;</span>.<br>
+The -&gt; operator is often referred to as the stabby lambda.<br>
+Since <code>++</code> has strong priority in AsciiDoc, you can rewrite C++ &#8658; C&#43;&#43;.<br>
+\$sqrt(4) = 2\$</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attributes">Attributes</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>// define attributes in the document header; must be flush with left margin
+:name: value</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can download and install Asciidoctor 2.0.17 from <a href="https://rubygems.org/gems/asciidoctor" class="bare">https://rubygems.org/gems/asciidoctor</a>.
+C&#43;&#43; is not required, only Ruby.
+Use a leading backslash to output a word enclosed in curly braces, like {name}.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://example.org/page">A webpage</a><br>
+<a href="../path/to/file.txt">A local file</a><br>
+<a href="document.html">A sibling document</a><br>
+<a href="mailto:hello@example.org">Email to say hello!</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_anchors">Anchors</h2>
+<div class="sectionbody">
+<div id="idname" class="paragraph">
+<p>A paragraph (or any block) with an anchor (aka ID) and reftext.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#idname">reference text</a> or <a href="#idname">optional text of internal link</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="document.html#idname">Jumps to anchor in another document</a>.</p>
+</div>
+<div class="paragraph">
+<p>This paragraph has a footnote.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists">Lists</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_unordered">Unordered</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>level 1</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 2</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 3</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 4</p>
+<div class="ulist">
+<ul>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>back at level 1</p>
+<div class="paragraph">
+<p>Attach a block or paragraph to a list item using a list continuation (which you can enclose in an open block).</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist circle">
+<div class="title">Some Authors</div>
+<ul class="circle">
+<li>
+<p>Edgar Allen Poe</p>
+</li>
+<li>
+<p>Sheri S. Tepper</p>
+</li>
+<li>
+<p>Bill Bryson</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ordered">Ordered</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Step 1</p>
+</li>
+<li>
+<p>Step 2</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Step 2a</p>
+</li>
+<li>
+<p>Step 2b</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Step 3</p>
+</li>
+</ol>
+</div>
+<div class="olist upperroman">
+<div class="title">Remember your Roman numerals?</div>
+<ol class="upperroman" type="I">
+<li>
+<p>is one</p>
+</li>
+<li>
+<p>is two</p>
+</li>
+<li>
+<p>is three</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checklist">Checklist</h3>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; checked</p>
+</li>
+<li>
+<p>&#10063; not checked</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_callout">Callout</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts 'Hello, World!' # <b class="conum">(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Prints <code>Hello, World!</code> to the console.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description">Description</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">first term</dt>
+<dd>
+<p>description of first term</p>
+</dd>
+<dt class="hdlist1">second term</dt>
+<dd>
+<p>description of second term</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_document_structure">Document Structure</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_header">Header</h3>
+<div class="literalblock">
+<div class="content">
+<pre>// header must be flush with left margin
+= Document Title
+Author Name &lt;author@example.org&gt;
+v1.0, 2019-01-01</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sections">Sections</h3>
+<div class="literalblock">
+<div class="content">
+<pre>// must be flush with left margin
+= Document Title (Level 0)
+== Level 1
+=== Level 2
+==== Level 3
+===== Level 4
+====== Level 5
+== Back at Level 1</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_includes">Includes</h3>
+<div class="literalblock">
+<div class="content">
+<pre>// must be flush with left margin
+include::basics.adoc[]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>// define -a allow-uri-read to allow content to be read from URI
+include::https://example.org/installation.adoc[]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_blocks">Blocks</h2>
+<div class="sectionbody">
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>open - a general-purpose content wrapper; useful for enclosing content to attach to a list item</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>admonition - a notice for the reader, ranging in severity from a tip to an alert</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>example - a demonstration of the concept being documented</p>
+</div>
+</div>
+</div>
+<details>
+<summary class="title">Toggle Me</summary>
+<div class="content">
+<div class="paragraph">
+<p>collapsible - these details are revealed by clicking the title</p>
+</div>
+</div>
+</details>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>sidebar - auxiliary content that can be read independently of the main content</p>
+</div>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>literal - an exhibit that features program output</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>listing - an exhibit that features program input, source code, or the contents of a file</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-language" data-lang="language">source - a listing that is embellished with (colorized) syntax highlighting</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-language" data-lang="language">fenced code - a shorthand syntax for the source block</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>quote - a quotation or excerpt; attribution with title of source are optional</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; attribution<br>
+<cite>citetitle</cite>
+</div>
+</div>
+<div class="verseblock">
+<pre class="content">verse - a literary excerpt, often a poem; attribution with title of source are optional</pre>
+<div class="attribution">
+&#8212; attribution<br>
+<cite>citetitle</cite>
+</div>
+</div>
+pass - content passed directly to the output document; often raw HTML
+<div class="stemblock">
+<div class="content">
+\$x = y^2\$
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tables">Tables</h2>
+<div class="sectionbody">
+<table class="tableblock frame-ends grid-all" style="width: 50%;">
+<caption class="title">Table 1. Table Attributes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Attribute Name</th>
+<th class="tableblock halign-left valign-top">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">options</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">header,footer,autowidth</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">cols</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">colspec[;colspec;&#8230;&#8203;]</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">grid</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all | cols | rows | none</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">frame</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all | sides | ends | none</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">stripes</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all | even | odd | none</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">width</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(0%..100%)</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top"><p class="tableblock">format</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">psv | csv | dsv</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multimedia">Multimedia</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="screenshot.png" alt="block image" width="800" height="450">
+</div>
+</div>
+<div class="paragraph">
+<p>Press <span class="image"><img src="reload.svg" alt="reload" width="16"></span> to reload the page.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="movie.mp4#t=60,140" width="640" autoplay controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe src="https://www.youtube.com/embed/aHjpOzsQ9YI?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe src="https://player.vimeo.com/video/300817511" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_breaks">Breaks</h2>
+<div class="sectionbody">
+<hr>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. This is the text of the footnote.
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-04-17 19:48:54 +0100
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+= AsciiDoc Syntax VShort
+:icons: font
+:stem:
+:toc: left
+:url-docs: https://asciidoctor.org/docs
+:url-gem: https://rubygems.org/gems/asciidoctor
+
+== AsciiDoc Syntax VShort
+
+A brief reference of the most commonly used AsciiDoc syntax.
+You can find the full documentation for the AsciiDoc syntax at {url-docs}.
+
+== Paragraphs
+
+A normal paragraph.
+Line breaks are not preserved.
+
+See https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206
+
+1234567890 abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+¬!"£$%^&*()_+-= {}[]:;@'~#<,>.?/|\
+
+dddeeeff

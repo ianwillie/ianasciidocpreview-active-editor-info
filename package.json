@@ -1,0 +1,21 @@
+{
+  "name": "ianasciidocpreview-active-editor-info",
+  "main": "./lib/ianasciidocpreview-active-editor-info",
+  "version": "0.0.0",
+  "description": "preview asciidoc files in pulsar",
+  "activationCommands": {
+    "atom-workspace": "ianasciidocpreview-active-editor-info:toggle"
+  },
+  "repository": "https://github.com/ianwillie/ianasciidocpreview-active-editor-info/",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "@asciidoctor/reveal.js": "^5.0.0-rc.1",
+    "asciidoctor": "^2.2.6"
+  },
+  "deserializers": {
+    "ianasciidocpreview-active-editor-info/IanasciidocpreviewActiveEditorInfoView": "deserializeIanasciidocpreviewActiveEditorInfoView"
+  }
+}

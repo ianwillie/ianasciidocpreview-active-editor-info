@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle ianasciidocpreview-active-editor-info",
+        "command": "ianasciidocpreview-active-editor-info:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "ianasciidocpreview-active-editor-info",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "ianasciidocpreview-active-editor-info:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
