@@ -21,4 +21,4 @@ See https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ¬!"£$%^&*()_+-= {}[]:;@'~#<,>.?/|\
 
-dddEEE
+dddeehhhhZZ

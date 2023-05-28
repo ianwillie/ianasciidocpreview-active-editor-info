@@ -7,7 +7,7 @@
 :styledir:
 :stylesheet: asciidoctor.css
 
-== AsciiDoc Syntax 999999999999999977
+== AsciiDoc Syntax 9999999999999999
 
 These letters and symbols following are to see if an error in rendering ever occurs.
 It was noted that the digit 9 was being rendered by pulsar html-preview as
@@ -18,6 +18,9 @@ No one other than ianwillie could find this.
 It occured for weeks and after Atom-Dark theme was present but vanished after installing
 Atom-Light and immediately reinstalling Atom-Dark.
 See https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206
+
+https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206
+
 
 1234567890 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
