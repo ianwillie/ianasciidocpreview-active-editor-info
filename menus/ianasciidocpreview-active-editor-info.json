@@ -4,6 +4,14 @@
       {
         "label": "Toggle ianasciidocpreview-active-editor-info",
         "command": "ianasciidocpreview-active-editor-info:toggle"
+      },
+      {
+        "label": "ZoomUp ianasciidocpreview-active-editor-info",
+        "command": "ianasciidocpreview-active-editor-info:transformScaleUp"
+      },
+      {
+        "label": "ZoomDown ianasciidocpreview-active-editor-info",
+        "command": "ianasciidocpreview-active-editor-info:transformScaleDown"
       }
     ]
   },

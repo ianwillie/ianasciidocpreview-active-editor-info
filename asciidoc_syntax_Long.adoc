@@ -9,13 +9,26 @@
 
 == AsciiDoc Syntax 9999999999999999
 
+THis is a very long line to test the horizontal width & scroll so that we can see just where the pane ends at the bottom cos there ought to be a scroll bar there I think. However, it may be necessary to have a line wi not blanks in it we will see when we test it now.
+backtick then plus gives monospaced
+
+`+12345678911234567892123456789312345678941234567895123456789612345678971234567898123456789912345678901234567891123456789212345678931234567894123456789512345678961234567897123456789812345678991234567890+` +
+`+0........1.........2.........3.........4.........5.........6.........7.........8........9.........10........11........12........13........14........15........16........17........18........19........20+` +
+
+`+12345678911234567892123456789312345678941234567895123456789612345678971234567898123456789912345678901234567891+` +
+`+0........1.........2.........3.........4.........5.........6.........7.........8........9.........10........11+` +
+
+
+`+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz+`
+
+
 These letters and symbols following are to see if an error in rendering ever occurs.
 It was noted that the digit 9 was being rendered by pulsar html-preview as
 a single "long dash" character. Probaby this character —
 Hold down together Ctrl-Shift-U followed by 2014 followed by space or entry
 which generates —
 No one other than ianwillie could find this.
-It occured for weeks and after Atom-Dark theme was present but vanished after installing
+It occured for weeks and after Atom-Dark theme was present but vanished after installin g
 Atom-Light and immediately reinstalling Atom-Dark.
 See https://github.com/pulsar-edit/pulsar/issues/475#issuecomment-1500706206
 
@@ -107,8 +120,11 @@ Use a leading backslash to output a word enclosed in curly braces, like \{name}.
 == Links
 
 [%hardbreaks]
-https://example.org/page[A webpage]
-link:../path/to/file.txt[A local file]
+https://example.org/page[A webpage. THIS WORKS]
+link:../media/AcerWinData/github_from_home/CloneOfianasciidocpreview-active-editor-info-20230915_ChromeZoomWiTransformFactorInFile/TEST_textfile.txt[A local file]
+link:atom://core/open/file?filename="/home/ian/websites/atom.io_FLightManual1.57Fromatom-flight-manual-archive.github.io/atom-flight-manual-archive.github.io/index.html"[A local file atom flight manual]
+link:atom://core/open/file?filename="/media/AcerWinData/github_from_home/CloneOfianasciidocpreview-active-editor-info-20230915_ChromeZoomWiTransformFactorInFile/TEST_textfile.txt"[A local file TEST_textfile.txt wi full path]
+link:atom://core/open/file?filename="TEST_textfile.txt"[A local file TEST_textfile.txt wi just filename. Open unknownfile]
 xref:document.adoc[A sibling document]
 mailto:hello@example.org[Email to say hello!]
 
@@ -321,3 +337,5 @@ video::300817511[vimeo]
 
 // page break
 <<<
+
+This the is END of file

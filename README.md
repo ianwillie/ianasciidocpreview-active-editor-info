@@ -1,16 +1,36 @@
+README_NEW.md   20230924
+
+This package will preview an asciidoc file in pulsar. Open an .adoc file in pulsar. To preview use the key combination ctrl-alt-shift-Y.   A preview window should open in the RIght dock.
+
+The preview can be zoomed with ctrl-shift+alt along with + or - to zoom in or out.  (In key maps these appear as "ctrl-alt-Y", "ctrl-alt-+""ctrl-alt-_" )
+
+3 files written out in temp folder in the default directory:
+    temp/htmloutputFileRawFromAsciidoc.html - the raw output from asciidoctor.js without any html headers like html, head, body tags. It seems to open OK in browsers.
+    temp/iansasciidocpreviewhtmloutput.html - the output from asciidoctor.js which is a complete html document with html, head & body tags and content and styling  added by by my program.
+    temp/iansasciidocpreviewtransformscale.txt - which contains the current zoom factor which is written when Ctrl-Shift-Alt- is pressed along with + or -. This file is read by the preview pane to control the zoom factor.
+    There may be other temporary files which are generated when the var consprint = true is set in ianasciidocpreview-active-editor-info-view.js. By default consprint is false and most console.log messages are inhibited.
+
+    If any of these files is edited or deleted they will be recreated by the program when a file is previewed. The zoom will default to 1.00.
+
+
+
+
+
+
+
 My version of an asciidoc-preview "ianasciidocpreview-active-editor-info"
 ========================================================================
 This file can be found in ianasciidocpreview-active-editor-info/
 
 This is my first attempt at developing a pulsar package. This is designed to replace asciidoc-preview which fails to preview asciidoc files in pulsar or atom after v1.60.
 This package ianasciidocpreview-active-editor-info has been developed from the package active-editor-info from  Hacking Pulsar.
-It does work to render asciidoc files in a separate pane which can be scrolled or dragged to view the content and resized in width. There are a few quirks and unexpected behaviours which are described below.
+It does work to render asciidoc files in a separate pane which can be scrolled or dragged to view the content and resized in width. It can be zoomed using key combination  Ctrl+Shift+Alt+ along with + or -. There are a few quirks and unexpected behaviours which are described below.
 This is a development package and I am asking advice on how to resolve various problems from people who know more about pulsar, atom and node than I.  Be aware that I take no responsibility for any untoward effects that installing package may have on your computer system: so be warned!
 In particular it might be better to replace innerHTML() with setHTML() which is supposed to sanitise any html before it is generated.
 
-I would suggest that anyone interested follow the guide below on how to install and use the package. I have not contemplated putting it on github because it is at such an early stage of development and I am a beginner in this field and looking for advice.
+I would suggest that anyone interested follow the guide below on how to install and use the package. I have recently put it on github which is a new experience for me so please bear with any teething problems which there will be.   https://ianwillie.github.io/
 
-Thanks for the help I have received up to nor, particularly from @confused-Techie & @Maurício Szabo.
+Thanks for the help I have received up to now, particularly from @confused-Techie & @Maurício Szabo.
 
 I hope this is of help to someone.
 
@@ -19,41 +39,38 @@ I hope this is of help to someone.
 
 I could do with help on these issues which are evident at the moment.
 
+I have worked out how to get scroll bars on the preview pane by editing the generated html code but they only appear when the height of the pane is fixed in pixels. If it is given in % or rem there are no scrollbars and no other scrolling operates. How can I find the total window height of Pulsar so that I can calculate an appropriate height?
+I have worked out how to zoom the preview pane by incorporating "transform: scale(factor)". How can I get user input of the preferred scale factor while the program runs. Pulsar does not seem to allow user input. There seem to be suggestions that this might be possible found from DuckDuckGo but there are no precise details of how to achieve this.  There seem to be 3 ways:
+1. Ask user to input a digital text factor like 0.8, 1 or 1.5 in a text box,
+2. Capture key strokes like ctrl-+ or ctrl--, choosing some combination that is unique for that pulsat setup,
+3. Use radio button marked like 0.2, 0.4, ... 1 ... 1.5 ...2
+Can anyone point me in the direction of how to get input from the user while the package runs. There is little point in putting the zoom factor in the config setup because it is handy to be able to change it to see more or less of the previewed content.
 
-/lib/ianasciidocpreview-active-editor-info-view file uses observeActivePaneItem() where I would have thought it more appropriate to use something related to  the TextEditorPane.  I have not been able to work out how to do this looking through the extensive lists of possibilities in the flight-manual.
+The preview changes as a new asciidoc file is selected and then when any changes are saved. How can I get the title of the preview pane to match that of the asciidoc file?
 
-        "this.subscriptions = atom.workspace.getCenter().observeActivePaneItem((item) => {
-        let editor = atom.workspace.getActiveTextEditor();
-        let words = editor.getText(); "
-
-Probably related to that, I do not know how to get the preview to change when I save the .adoc file. The preview only changes when the focus pane is changed to another and back to the original. It shows the edited changes even though the file has not been saved.
-
-I keep getting this error: Uncaught TypeError: Cannot read property 'getText' of undefined, lib/ianasciidocpreview-active-editor-info-view.js:28. I can see that the editor may be undefined but how do I skip this command in that case?
-This seems to appear when using markdown-preview package as well.
-
-I hope to get some degree of scrolling so that they adoc and preview are in sync.
+I hope to get some degree of scrolling so that they adoc and preview are in sync because asciidoctor.js can output data that might help with this.
 
 Installation
 ============
 You may need to install asciidoctor.js  with npm. See below for details and https://docs.asciidoctor.org/asciidoctor.js/latest/setup/install/
 
-Download ianasciidocpreview-active-editor-info.zip to a directory like ~/Downloads & unzip.
+Download from https://github.com/ianwillie/ianasciidocpreview-active-editor-info  either a zip or clone it.
 
-Either, 1. copy the files to the directory ~/.pulsar/packages//home/ian/github/ianasciidocpreview-active-editor-info or
+There are different ways to install and you might either: 1. copy the files to the directory ~/.pulsar/packages//home/ian/github/ianasciidocpreview-active-editor-info or
 2. create a symbolic link between ~/.pulsar/packages//home/ian/github/ianasciidocpreview-active-editor-info and the unzipped directory.
 
-Restart pulsar.  (This program was developed using cd ~/.pulsar/packages/ianasciidocpreview-active-editor-info; <MyDownloadDirectory>/Pulsar-1.103.2023040323.AppImage . --no-sandbox )  Your command to start pulsar will be different.
+Restart pulsar and the program should be install. If it is not installed check that the directory is accessible to the .pulsar/packages directory.  (This program was developed using cd ~/.pulsar/packages/ianasciidocpreview-active-editor-info; <MyDownloadDirectory>/Pulsar-1.105...AppImage . --no-sandbox )  Your command to start pulsar may be different.
 
-Navigate to ~/.pulsar/packages/ianasciidocpreview-active-editor-info and click on the asciidoc file  DatesTEST.adoc.  This should open in an editor pane and now place the cursor within it. There will be several .adoc files in this directory.
-Run the asciidoc previewing program by pressing together Ctrl-Alt-Shift-Y, or, Ctrl-Shift-P and entering ianasciidocpreview-active-editor-info: toggle, or, Menu  Packages>ianasciidocpreview-active-editor-info: toggle.
+To try the packages navigate to ~/.pulsar/packages/ianasciidocpreview-active-editor-info and click on the asciidoc file  asciidoc_syntax_Long.adoc.  This should open in an editor pane and now place the cursor within it. There will be several .adoc files in this directory but you need to select a long one so that the scrollbars become visible.
+Run the asciidoc previewing program by pressing together Ctrl-Alt-Shift-Y, or, Ctrl-Shift-P and entering ianasciidocpreview-active-editor-info: toggle, or, Menu  Packages>ianasciidocpreview-active-editor-info: toggle. Note that the cursor must be in the .adoc source editor pane when you do either of these or the preview pane will not appear.
 
 You should see a panel open on the right showing the rendered asciidoc file.  It may be necessary to enter the last command more than once because Ctrl-Alt-Shift-Y is a toggle to display or undisplay the preview panel.
 
-Now if you click on to open  asciidoc_syntax.adoc you will see scroll bars. Mouse dragging works but up/down arrow work and PgUp & PgDown do not work yet.
+Now if you click on to open  asciidoc_syntax.adoc you will see scroll bars. Mouse dragging works but up/down arrow work and PgUp & PgDown do not work yet. Your setup may give different results so try various ways of scolling.
 
-There will be several .adoc files in the ~/.pulsar/packages/ianasciidocpreview-active-editor-infos directory of different sizes. Choose the smallest asciidoc_syntax_VShort.adoc to start with. It will show no vertical scroll bars because it is so small. The largest file asciidoc_syntax.adoc has many lines and should show vertical scrollbars. If you navigate right to the end there is a media file which should run with sound, full screen and so on when you click the arrow. (asciidoc_syntax.adoc is an old version of the asciidoctor syntax demo file for latest syntax look at the asciidoctor website.)
+There will be several .adoc files in the ~/.pulsar/packages/ianasciidocpreview-active-editor-infos directory of different sizes. The smallest asciidoc_syntax_VShort.adoc  will show no vertical scroll bars because it does not fill the fixed height pare. The largest file asciidoc_syntax.adoc has many lines and should show vertical scrollbars. If you navigate right to the end there is a media file which should run with sound, full screen and so on when you click the arrow. (asciidoc_syntax.adoc is an old version of the asciidoctor syntax demo file for latest syntax look at the asciidoctor website.) Links to external URLs will operate but internal website links will not be expected to operate because these may not exist in accessible locations.
 
-The adoc preview panel can be opened and closed with the top-right X. The left edge can be clicked and pulled to enlarge. The vertical size is set in pixels in the program otherwise the scroll is not activated.
+The adoc preview panel can be opened and closed with the top-right X. The left edge can be clicked and dragged to enlarge. The vertical size is set in pixels in the program otherwise the scroll is not activated.
 
 To see what is happening use the console.log. Output to this is dictated by "const consprint = false;". Open ~/.pulsar/packages/lib/ianasciidocpreview-active-editor-info-view.js and change to "const consprint = true;", without the quotes.Press Ctrl-Shift-I to turn on the console. You may need --no-sandbox on the pulsar command line for this to work. Then use Ctr-Alt-Shift-Y.
 

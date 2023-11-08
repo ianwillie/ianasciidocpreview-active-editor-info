@@ -1,3 +1,10 @@
 .DS_Store
 npm-debug.log
 node_modules
+
+# temp/ should match dir temp and all contents anywhere eg ./temp/ & ./lib/temp/
+temp/
+.flowconfig
+
+# .directory Dolphin config for directory, I think
+.directory

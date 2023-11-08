@@ -1,5 +1,7 @@
 {
   "atom-workspace": {
-    "ctrl-alt-Y": "ianasciidocpreview-active-editor-info:toggle"
+    "ctrl-alt-Y": "ianasciidocpreview-active-editor-info:toggle",
+    "ctrl-alt-+": "ianasciidocpreview-active-editor-info:transformScaleUp",
+    "ctrl-alt-_": "ianasciidocpreview-active-editor-info:transformScaleDown"
   }
 }
