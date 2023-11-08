@@ -1,4 +1,6 @@
-README_NEW.md   20230924
+README_NEW.md   20231108   
+
+This still contains a lot of info from past updates which is less relevant now. Instructions at the start are OK.
 
 This package will preview an asciidoc file in pulsar. Open an .adoc file in pulsar. To preview use the key combination ctrl-alt-shift-Y.   A preview window should open in the RIght dock.
 
