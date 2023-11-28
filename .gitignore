@@ -9,3 +9,7 @@ temp/
 htmlOutputFile.html
 .directory
 .flowconfig
+.Rhistory
+*.orig
+*.original
+
