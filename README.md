@@ -24,16 +24,21 @@ This package will preview an asciidoc file in pulsar. Open an .adoc file in puls
 
 The preview can be zoomed with ctrl-shift+alt along with + or - to zoom in or out.  (In keymaps these appear as "ctrl-alt-Y", "ctrl-alt-+""ctrl-alt-_" )
 
+The preview can also be opened in the Falkon browser with ctrl-alt-shft-F. Using an external browser has the big advantage that almost all the links, internal and external work as expected. (In the pulsar preview many links just do not operate at all, for example, to CSS id targets and links form the asciidoc contents. Also zooming works as expected. The big plus of Falkon is that it employs an automatic local server so that when the asciidoc file with changes is saved  they are reflected at once in the browser. The above  keystrokes also copy to clipboard  the preview source html system filename (  file///:...temp/iansasciidocpreviewhtmloutput.html see below) which can be pasted into any browser but it is unlikely to be updated when th asciidoc files is saved unless you set up a local server which Falcon does for us. You will need to install Falkon which is available for most operating systems at https://www.falkon.org/download/ or a local depository.
+
+## Temporary files
+
 In addition to showing a preview three files are written out in temp folder in the default directory:
-    temp/htmloutputFileRawFromAsciidoc.html - the raw output from asciidoctor.js without any html headers like html, head, body tags. It seems to open OK in browsers.
 
-    temp/iansasciidocpreviewhtmloutput.html - the output from asciidoctor.js which is a complete html document with html, head & body tags and content and styling  added by by my program. This is the file that is opened in Falkon browser (see below for details.)
+temp/htmloutputFileRawFromAsciidoc.html - the raw output from asciidoctor.js without any html headers like html, head, body tags. It seems to open OK in browsers.
 
-    temp/iansasciidocpreviewtransformscale.txt - which contains the current zoom factor which is written when Ctrl-Shift-Alt- is pressed along with + or -. This file is read by the preview pane to control the zoom factor. ( As an aside, if the zoom factor figure is edited in this file and the file saved that will become the zoom of the preview. However, a console.log error message may appear about zoom factor not matching: just ignore this. )
+temp/iansasciidocpreviewhtmloutput.html - the output from asciidoctor.js which is a complete html document with html, head & body tags and content and styling  added by by my program. This is the file that is opened in Falkon browser (see below for details.)
 
-    There may be other temporary files which are generated when the var consprint = true is set in ianasciidocpreview-active-editor-info-view.js. By default consprint is false and most console.log messages are inhibited.
+temp/iansasciidocpreviewtransformscale.txt - which contains the current zoom factor which is written when Ctrl-Shift-Alt- is pressed along with + or -. This file is read by the preview pane to control the zoom factor. ( As an aside, if the zoom factor figure is edited in this file and the file saved that will become the zoom of the preview. However, a console.log error message may appear about zoom factor not matching: just ignore this. )
 
-    If any of these files is edited or deleted they will be recreated by the program when a file is previewed. The zoom will default to 1.00.
+There may be other temporary files which are generated when the var consprint = true is set in ianasciidocpreview-active-editor-info-view.js. By default consprint is false and most console.log messages are inhibited.
+
+If any of these files is edited or deleted they will be recreated by the program when a file is previewed. The zoom will default to 1.00.
 
 Installation
 ============
@@ -67,7 +72,7 @@ The adoc preview panel can be closed with the top-right X. The left edge can be 
 Preview in external browser
 ======================
 
-The adoc file can be previewed in an external browser by executing Ctrl-Alt-Shft-F or Ctrl-Shft-P plus command. This is set up to open with the browser Falkon which has the advantage that it out-of-the-box refreshes  when the source file is saved without setting up a local server. Repeat Ctrl-Alt-Shft-F if external browser looses sync with the .adoc file and to give focus to this browser which brings it infont of other windows.
+The adoc file can be previewed in an external browser by executing Ctrl-Alt-Shft-F or Ctrl-Shft-P plus command. This is set up to open with the browser Falkon which has the advantage that it out-of-the-box refreshes  when the source file is saved without setting up a local server. Repeat Ctrl-Alt-Shft-F if external browser looses sync with the .adoc file and to give focus to this browser which may bring it infont of other windows.
 
 
 Console.log messages
