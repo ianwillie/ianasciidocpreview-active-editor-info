@@ -1,6 +1,15 @@
-README_NEW.md   20231224
+README_NEW.md   20230205
 
-Latest update with Ctrl-Alt-Shft-F to open external Folkon browser which gives a realistic working version of adoc file.
+I've created a branch Test_Changing_htmloutputDir which puts the temp directory in /home/ZZZZianasciidocpreview-active-editor-info/temp/ . This is based on a minimal change to my original main push. All the same files as before should appear in temp/. Many thanks to @dadreggors for the stimulation as to why this might be a useful change.
+Please try this and let me know how you get on.
+The htmloutputDir can be changed to "./" to have the temp/ directory appear in the project directory. See the comments in the lib/...view.js file for how to do this.
+
+(There are several new .html files starting htmloutputFileRawFromAsciidoc which show different modes of asciidoctor.js .adoc conversions. In the future these will be used to generate the linked style css files which will be incorporated into the outputhtml file. Eventually, but not yet, this output will be controlled from within the .adoc file as css attributes.)
+
+Note: this is the first time I have pushed a branch, so it might not have gone according to plan. Please let me know.
+
+
+Latest update with Ctrl-Alt-Shft-F to open external Falkon browser which gives a realistic working version of adoc file.
 
 My version of an asciidoc-preview "ianasciidocpreview-active-editor-info"
 ========================================================================

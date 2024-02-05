@@ -1,6 +1,8 @@
 # Changelog
 
 - just some dates with what was altered. As yet no versioning because [roject is inearly development.]
+## 20240205
+Created a branch Test_Changing_htmloutputDir which puts the temp directory in /home/ZZZZianasciidocpreview-active-editor-info/temp/ . This is based on a minimal change to my original main push. All the same files as before should appear in temp/. Many thanks to @dadreggors for the stimulation as to why this might be a useful change.
 
 ## 20240131
 Write standalone asciidoctor.js output so that css attributes defined in .adoc can be extracted & injected into generated html head  NB NB ata kater date!
